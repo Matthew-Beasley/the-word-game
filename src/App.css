@@ -1,4 +1,19 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
+.words {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.word-box {
+  font-size: 1rem;
+  flex: 1;
+  border: 1px solid black;
+  max-width: 8rem;
+  margin: 1rem;
+}
