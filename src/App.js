@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import faker from 'faker';
+import Stats from './Stats';
 import './App.css';
 
 
@@ -21,27 +22,10 @@ function App() {
     console.log(updated);
     setWords(updated);
   }
-
-  const nounsCount = () => words.reduce((acc, word) => {
-    if (word.type === 'noun') {
-      acc++;
-    }
-    return acc;
-  }, 0)
-
-  const adjectiveCount = () => words.reduce((acc, word) => {
-    if (word.type === 'adjective') {
-      acc++;
-    }
-    return acc;
-  }, 0)
   
   return (
     <div className="App">
-      <div className="stats">
-        <h2>We Have {words.length} Words</h2>
-        <p>We have {nounsCount()} nouns and {adjectiveCount()} adjectives</p>
-      </div>
+      <Stats words={words}/>
       <div className="main">
         <button onClick={() => addWord('noun')}>Add Noun</button>
         <button onClick={() => addWord('adjective')}>Add Adjective</button>
