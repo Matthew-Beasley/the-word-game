@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import faker from 'faker';
 import Stats from './Stats';
 import './App.css';
+import Words from './Words';
 
 
 const generateWord = (type) => {
@@ -19,7 +20,6 @@ function App() {
 
   const addWord = (type) => {
     const updated = [...words, generateWord(type)];
-    console.log(updated);
     setWords(updated);
   }
   
@@ -30,11 +30,7 @@ function App() {
         <button onClick={() => addWord('noun')}>Add Noun</button>
         <button onClick={() => addWord('adjective')}>Add Adjective</button>
       </div>
-      <div className="words">
-        {words.map((word, idx) => {
-          return <div className="word-box" key={idx}>{word.text} ({word.type})</div>
-        })}
-      </div>
+      <Words words={words}/>
     </div>
   );
 }
